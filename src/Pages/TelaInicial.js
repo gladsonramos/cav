@@ -5,11 +5,10 @@ import StickyFooter from '../Componentes/Rodape';
 import Selects from '../Componentes/Selects';
 import Buttons from '../Componentes/Button';
 import Espacamento from '../Componentes/Espacamento';
-import { TesteRe } from './teste';
 
 function TelaInicial() {
   const api = axios.create({
-    baseURL: "http://52.188.10.0:3002/teste",
+    baseURL: "https://52.188.10.0:3002/teste",
   });
 
   const [formValues, setFormValues] = useState({
@@ -99,7 +98,7 @@ function TelaInicial() {
   const handleSubmit = () => {
     setDados("AGUARDE...");
     api
-      .post("https://52.188.10.0:3002/teste", formValues)
+      .post("https://projetorbruno.lmconsulting.com.br/teste", formValues)
       .then((response) => {
         setMessage(null);
         setDados(response.data);
@@ -121,14 +120,10 @@ function TelaInicial() {
     console.log(value)
   };
 
-  console.log(formValues)
-  const { teste, vai } = TesteRe()
-  console.log(teste, 'teste')
-
   return (
     <StickyFooter>
       <div className="selects-container">
-        SEU RESULTADO: {Dados}
+        SEU RESULTADOs: {Dados}
         <Espacamento tamanho={20} />
         <div className="selects-row">
           {selectsData.slice(0, Math.ceil(selectsData.length / 1)).map((select) => (
